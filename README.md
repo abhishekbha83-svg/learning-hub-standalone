@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Learning Hub (standalone)
 
 This project is a standalone extraction of the Learning Hub feature from the supplied Study With Abhi archive. It contains only the Learning Hub UI, local learning data, syllabus data, certificate system, server routes, and the shared Study With Abhi brand asset used by certificates.
@@ -41,3 +42,6 @@ Replace `YOUR-GITHUB-USERNAME` with your GitHub username. Keep `.env` private: i
 - The original certificate artwork retains the shared Study With Abhi logo. Replace `src/components/StudyWithAbhiLogo.tsx` and `public/study_with_abhi_logo.svg` if you want independent branding.
 
 See `SEPARATION_REPORT.md` for the exact separation boundary and known limitations.
+=======
+# learning-hub-standalone
+>>>>>>> b5ba873adf0fc7cf35ca53e0b4b9bbe826925fc3
