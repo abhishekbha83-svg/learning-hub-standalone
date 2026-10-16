@@ -1,0 +1,777 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *, .dark, .dark *));
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface-secondary: #F8FAFC;
+    --surface-tertiary: #F1F5F9;
+    --text-primary: #111827;
+    --text-secondary: #64748B;
+    --border: #E5E7EB;
+    --brand: #f97316;
+    --success: #10b981;
+    --danger: #ef4444;
+
+    /* Aliases for backwards compatibility */
+    --bg-base: #FFFFFF;
+    --bg-surface: #FFFFFF;
+    --bg-surface-elevated: #F8FAFC;
+    --border-subtle: #E5E7EB;
+    --border-orange: rgba(249, 115, 22, 0.3);
+    --accent-orange: #ea580c;
+    --accent-amber: #f59e0b;
+    --text-muted: #64748b;
+  }
+
+  [data-theme='light'] {
+    color-scheme: light !important;
+    --background: #FFFFFF;
+    --surface: #FFFFFF;
+    --surface-secondary: #F8FAFC;
+    --surface-tertiary: #F1F5F9;
+    --text-primary: #111827;
+    --text-secondary: #64748B;
+    --border: #E5E7EB;
+    --brand: #f97316;
+    --success: #10b981;
+    --danger: #ef4444;
+
+    --bg-base: #FFFFFF;
+    --bg-surface: #FFFFFF;
+    --bg-surface-elevated: #F8FAFC;
+    --border-subtle: #E5E7EB;
+    --border-orange: rgba(249, 115, 22, 0.3);
+    --accent-orange: #ea580c;
+    --accent-amber: #f59e0b;
+    --text-muted: #64748b;
+  }
+
+  [data-theme='dark'] {
+    color-scheme: dark !important;
+    --background: #090a0f;
+    --surface: #12141d;
+    --surface-secondary: #181a26;
+    --surface-tertiary: #1c1f2d;
+    --text-primary: #F8FAFC;
+    --text-secondary: #94A3B8;
+    --border: rgba(255, 255, 255, 0.1);
+    --brand: #f97316;
+    --success: #10b981;
+    --danger: #ef4444;
+
+    --bg-base: #090a0f;
+    --bg-surface: #12141d;
+    --bg-surface-elevated: #181a26;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-orange: rgba(249, 115, 22, 0.35);
+    --accent-orange: #f97316;
+    --accent-amber: #fb923c;
+    --text-muted: #94A3B8;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  /* Custom Clean Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, 0.25);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(249, 115, 22, 0.5);
+  }
+
+  [data-theme='dark'] ::-webkit-scrollbar-track {
+    background: #090a0f;
+  }
+  [data-theme='dark'] ::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  [data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
+    background: rgba(249, 115, 22, 0.5);
+  }
+}
+
+/* Ambient dynamic background lighting */
+.ambient-glow-mesh {
+  position: fixed;
+  inset: 0;
+  background: 
+    radial-gradient(circle at 15% 10%, rgba(249, 115, 22, 0.05), transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(245, 158, 11, 0.04), transparent 50%),
+    radial-gradient(circle at 50% 40%, rgba(251, 146, 60, 0.02), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+  transition: background 0.3s ease;
+}
+
+[data-theme='dark'] .ambient-glow-mesh {
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(249, 115, 22, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(234, 88, 12, 0.09), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(251, 146, 60, 0.04), transparent 60%);
+}
+
+/* Glassmorphic Panel */
+.glass-panel {
+  background: var(--surface);
+  border: 1px solid var(--border);
+}
+
+.glass-panel-hover {
+  transition: all 0.25s cubic-bezier(0.25, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  transform: translateY(-2px);
+  border-color: rgba(249, 115, 22, 0.45);
+  box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+}
+
+/* Orange Glow utilities */
+.glow-orange {
+  box-shadow: 0 0 25px -5px rgba(249, 115, 22, 0.35);
+}
+
+.glow-orange-sm {
+  box-shadow: 0 0 15px -3px rgba(249, 115, 22, 0.25);
+}
+
+/* Top Progress loader animation */
+@keyframes loadingPulse {
+  0% { transform: translateX(-100%); }
+  50% { transform: translateX(0%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-loader-pulse {
+  animation: loadingPulse 1.5s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   GLOBAL LIGHT THEME ENFORCEMENT
+   When WHITE/LIGHT theme is active:
+   - Main page background: #FFFFFF
+   - Cards: #FFFFFF
+   - Sidebar: #FFFFFF
+   - Header: #FFFFFF
+   - Platform cards: #FFFFFF
+   - Portal containers: #FFFFFF
+   - Dropdowns: #FFFFFF
+   - Modals: #FFFFFF
+   - Search bars: #FFFFFF
+   - Input fields: #FFFFFF
+   - Primary text: #111827
+   - Secondary text: #64748B
+   - Borders: #E5E7EB
+   ========================================================================== */
+
+[data-theme='light'] {
+  color-scheme: light !important;
+}
+
+/* 1. Base App and Layout Backgrounds */
+[data-theme='light'] .min-h-screen,
+[data-theme='light'] .bg-\[\#090a0f\],
+[data-theme='light'] .bg-\[\#07090e\],
+[data-theme='light'] .bg-\[\#07080d\],
+[data-theme='light'] .bg-\[\#08090f\],
+[data-theme='light'] .bg-\[\#08090e\],
+[data-theme='light'] .bg-\[\#08090d\],
+[data-theme='light'] .bg-\[\#090b10\],
+[data-theme='light'] .bg-\[\#0b0d15\],
+[data-theme='light'] .bg-\[\#0a0b10\],
+[data-theme='light'] .bg-\[\#0c0e15\],
+[data-theme='light'] .bg-\[\#0c0e18\],
+[data-theme='light'] .bg-\[\#0c101d\],
+[data-theme='light'] .bg-\[\#0d0e15\],
+[data-theme='light'] .bg-\[\#0d0f18\],
+[data-theme='light'] .bg-\[\#0e1017\],
+[data-theme='light'] .bg-\[\#0e101b\],
+[data-theme='light'] .bg-\[\#0e1626\],
+[data-theme='light'] .bg-\[\#0f111a\],
+[data-theme='light'] .bg-\[\#10121a\],
+[data-theme='light'] .bg-\[\#10121b\] {
+  background-color: #FFFFFF !important;
+}
+
+/* 2. Primary Navigation & Header Elements */
+[data-theme='light'] #main-top-navbar,
+[data-theme='light'] .bg-\[\#0c0e15\]\/85 {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+[data-theme='light'] #main-sidebar,
+[data-theme='light'] .bg-\[\#0c0e15\]\/95 {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 1px 0 3px 0 rgba(0, 0, 0, 0.03) !important;
+}
+
+[data-theme='light'] #mobile-bottom-dock {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme='light'] #student-profile-widget,
+[data-theme='light'] .bg-\[\#08090d\]\/60 {
+  background-color: #F8FAFC !important;
+  border-color: #E5E7EB !important;
+}
+
+/* 3. Card Surfaces: Clean White Surfaces with Light Gray Borders */
+[data-theme='light'] .bg-\[\#11131c\],
+[data-theme='light'] .bg-\[\#11131e\],
+[data-theme='light'] .bg-\[\#11131f\],
+[data-theme='light'] .bg-\[\#12141d\],
+[data-theme='light'] .bg-\[\#12141e\],
+[data-theme='light'] .bg-\[\#12141f\],
+[data-theme='light'] .bg-\[\#121422\],
+[data-theme='light'] .bg-\[\#131522\],
+[data-theme='light'] .bg-\[\#141622\],
+[data-theme='light'] .bg-\[\#141624\],
+[data-theme='light'] .bg-\[\#141724\],
+[data-theme='light'] .bg-\[\#151722\],
+[data-theme='light'] .bg-\[\#151824\],
+[data-theme='light'] .bg-\[\#151827\],
+[data-theme='light'] .bg-\[\#161824\],
+[data-theme='light'] .bg-\[\#161826\],
+[data-theme='light'] .bg-\[\#161925\],
+[data-theme='light'] .bg-\[\#171924\],
+[data-theme='light'] .bg-\[\#171a26\],
+[data-theme='light'] .bg-\[\#171a27\],
+[data-theme='light'] .bg-\[\#171a28\],
+[data-theme='light'] .bg-\[\#171a29\],
+[data-theme='light'] .bg-\[\#181a26\],
+[data-theme='light'] .bg-\[\#181a28\],
+[data-theme='light'] .bg-\[\#1a1d29\],
+[data-theme='light'] .bg-\[\#1a1d2c\],
+[data-theme='light'] .bg-\[\#1a1d2e\],
+[data-theme='light'] .bg-\[\#1c1f2e\],
+[data-theme='light'] .bg-\[\#1d202f\],
+[data-theme='light'] .bg-\[\#111625\],
+[data-theme='light'] .bg-\[\#121524\],
+[data-theme='light'] .bg-\[\#151825\],
+[data-theme='light'] .bg-\[\#0f111a\],
+[data-theme='light'] .bg-\[\#0d0f18\],
+[data-theme='light'] .bg-\[\#0c0e14\],
+[data-theme='light'] .bg-\[\#11131c\]\/95,
+[data-theme='light'] .bg-\[\#12141d\]\/90,
+[data-theme='light'] .bg-\[\#12141d\]\/85,
+[data-theme='light'] .bg-\[\#12141d\]\/50 {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Card IDs: Platform cards, study cards, continue learning cards */
+[data-theme='light'] [id^="platform-card-"],
+[data-theme='light'] [id^="study-platform-card-"],
+[data-theme='light'] [id^="continue-learning-card-"],
+[data-theme='light'] .platform-card-surface {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+/* Quick Access Hub Cards in Light Mode */
+[data-theme='light'] #quick-access-section .group {
+  background: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.02) !important;
+}
+
+[data-theme='light'] #quick-access-section .group:hover {
+  border-color: rgba(249, 115, 22, 0.45) !important;
+  box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.12) !important;
+}
+
+[data-theme='light'] #quick-access-section .bg-black\/40 {
+  background-color: #FFF7ED !important;
+  color: #EA580C !important;
+}
+
+[data-theme='light'] #quick-access-section .border-white\/5 {
+  border-color: #F1F5F9 !important;
+}
+
+/* 4. Gradients Mapped to Clean Light Surfaces */
+[data-theme='light'] .from-\[\#131522\],
+[data-theme='light'] .from-\[\#141624\],
+[data-theme='light'] .from-\[\#141622\],
+[data-theme='light'] .from-\[\#161824\],
+[data-theme='light'] .from-\[\#181a24\],
+[data-theme='light'] .from-\[\#181a26\],
+[data-theme='light'] .from-\[\#0e101b\],
+[data-theme='light'] .from-\[\#0c1a14\],
+[data-theme='light'] .from-\[\#11131c\],
+[data-theme='light'] .from-\[\#111625\],
+[data-theme='light'] .from-\[\#121524\],
+[data-theme='light'] .from-\[\#151825\],
+[data-theme='light'] .from-\[\#171a26\],
+[data-theme='light'] .from-\[\#171a28\] {
+  --tw-gradient-from: #FFFFFF !important;
+}
+
+[data-theme='light'] .via-\[\#0f111a\],
+[data-theme='light'] .via-\[\#10121a\],
+[data-theme='light'] .via-\[\#10121d\],
+[data-theme='light'] .via-\[\#101320\],
+[data-theme='light'] .via-\[\#11131c\],
+[data-theme='light'] .via-\[\#111915\],
+[data-theme='light'] .via-\[\#131520\],
+[data-theme='light'] .via-\[\#161824\],
+[data-theme='light'] .via-\[\#161825\],
+[data-theme='light'] .via-\[\#181a24\],
+[data-theme='light'] .via-\[\#181a26\] {
+  --tw-gradient-via: #F8FAFC !important;
+}
+
+[data-theme='light'] .to-\[\#161826\],
+[data-theme='light'] .to-\[\#141624\],
+[data-theme='light'] .to-\[\#12131b\],
+[data-theme='light'] .to-\[\#12141d\],
+[data-theme='light'] .to-\[\#12141e\],
+[data-theme='light'] .to-\[\#0c0e15\],
+[data-theme='light'] .to-\[\#0c0e17\],
+[data-theme='light'] .to-\[\#11131c\],
+[data-theme='light'] .to-\[\#1d2030\],
+[data-theme='light'] .to-\[\#181a26\],
+[data-theme='light'] .to-\[\#08090f\] {
+  --tw-gradient-to: #FFFFFF !important;
+}
+
+/* 5. Typography: #111827 for Headings & Primary Text, #64748B for Secondary */
+[data-theme='light'] .text-white {
+  color: #111827 !important;
+}
+
+[data-theme='light'] .text-slate-100,
+[data-theme='light'] .text-slate-200 {
+  color: #111827 !important;
+}
+
+[data-theme='light'] .text-slate-300,
+[data-theme='light'] .text-slate-400,
+[data-theme='light'] .text-slate-500 {
+  color: #64748B !important;
+}
+
+/* Preserve bright white text on primary buttons and solid brand chips */
+[data-theme='light'] .bg-orange-500 .text-white,
+[data-theme='light'] .bg-orange-600 .text-white,
+[data-theme='light'] button.bg-orange-500,
+[data-theme='light'] a.bg-orange-500,
+[data-theme='light'] button.bg-orange-500 *,
+[data-theme='light'] a.bg-orange-500 *,
+[data-theme='light'] .bg-gradient-to-r.from-orange-500,
+[data-theme='light'] .bg-gradient-to-r.from-orange-500 * {
+  color: #FFFFFF !important;
+}
+
+/* 6. Subtle Borders: Clean light gray borders (#E5E7EB) */
+[data-theme='light'] .border-white\/5,
+[data-theme='light'] .border-white\/10,
+[data-theme='light'] .border-white\/15,
+[data-theme='light'] .border-white\/20,
+[data-theme='light'] .border-white\/25,
+[data-theme='light'] .border-white\/30,
+[data-theme='light'] .border-gray-700,
+[data-theme='light'] .border-gray-800,
+[data-theme='light'] .border-slate-700,
+[data-theme='light'] .border-slate-800 {
+  border-color: #E5E7EB !important;
+}
+
+/* 7. Subtle Translucent Surface Layers */
+[data-theme='light'] .bg-white\/\[0\.02\],
+[data-theme='light'] .bg-white\/\[0\.03\],
+[data-theme='light'] .bg-white\/\[0\.04\],
+[data-theme='light'] .bg-white\/\[0\.05\],
+[data-theme='light'] .bg-white\/5,
+[data-theme='light'] .bg-white\/10 {
+  background-color: #F1F5F9 !important;
+}
+
+[data-theme='light'] .hover\:bg-white\/5:hover,
+[data-theme='light'] .hover\:bg-white\/10:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.04\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.06\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.07\]:hover,
+[data-theme='light'] .hover\:bg-white\/\[0\.08\]:hover {
+  background-color: #E2E8F0 !important;
+}
+
+/* 8. Inputs, Selects & Search Bars: Pure White #FFFFFF with #E5E7EB border */
+[data-theme='light'] input[type="text"],
+[data-theme='light'] input[type="search"],
+[data-theme='light'] input[type="number"],
+[data-theme='light'] select,
+[data-theme='light'] textarea,
+[data-theme='light'] #global-search-input {
+  background-color: #FFFFFF !important;
+  color: #111827 !important;
+  border-color: #E5E7EB !important;
+}
+
+[data-theme='light'] input::placeholder,
+[data-theme='light'] textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+[data-theme='light'] input:focus,
+[data-theme='light'] select:focus,
+[data-theme='light'] textarea:focus {
+  border-color: #F97316 !important;
+  box-shadow: 0 0 0 2px rgba(249, 115, 22, 0.15) !important;
+}
+
+/* 9. Badges & Chips */
+[data-theme='light'] .bg-orange-500\/10,
+[data-theme='light'] .bg-orange-500\/15,
+[data-theme='light'] .bg-orange-500\/20,
+[data-theme='light'] .bg-orange-500\/25 {
+  background-color: #FFF7ED !important;
+  border-color: #FED7AA !important;
+  color: #C2410C !important;
+}
+
+[data-theme='light'] .text-orange-300,
+[data-theme='light'] .text-orange-400 {
+  color: #EA580C !important;
+}
+
+[data-theme='light'] .text-amber-300,
+[data-theme='light'] .text-amber-400 {
+  color: #D97706 !important;
+}
+
+[data-theme='light'] .bg-amber-500\/10,
+[data-theme='light'] .bg-amber-500\/15,
+[data-theme='light'] .bg-amber-500\/20 {
+  background-color: #FFFBEB !important;
+  border-color: #FDE68A !important;
+  color: #B45309 !important;
+}
+
+[data-theme='light'] .text-emerald-300,
+[data-theme='light'] .text-emerald-400 {
+  color: #059669 !important;
+}
+
+[data-theme='light'] .bg-emerald-500\/10,
+[data-theme='light'] .bg-emerald-500\/15,
+[data-theme='light'] .bg-emerald-500\/20 {
+  background-color: #ECFDF5 !important;
+  border-color: #A7F3D0 !important;
+  color: #047857 !important;
+}
+
+[data-theme='light'] .bg-blue-500\/10,
+[data-theme='light'] .bg-blue-500\/15,
+[data-theme='light'] .bg-blue-500\/20 {
+  background-color: #EFF6FF !important;
+  border-color: #BFDBFE !important;
+  color: #1D4ED8 !important;
+}
+
+/* 10. Modals & Popovers: Pure White #FFFFFF */
+[data-theme='light'] #profile-modal-card,
+[data-theme='light'] #telegram-welcome-modal-card,
+[data-theme='light'] #launch-loader-modal > div,
+[data-theme='light'] .modal-surface {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.12) !important;
+}
+
+[data-theme='light'] #profile-modal-overlay,
+[data-theme='light'] #telegram-welcome-modal-overlay,
+[data-theme='light'] #launch-loader-modal {
+  background-color: rgba(17, 24, 39, 0.5) !important;
+}
+
+/* 11. Hero and Community Banners in Light Mode */
+[data-theme='light'] #hero-section {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF7F0 50%, #FFFFFF 100%) !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.03), 0 8px 10px -6px rgba(0, 0, 0, 0.02) !important;
+}
+
+[data-theme='light'] #hero-section h1 {
+  color: #111827 !important;
+}
+
+[data-theme='light'] #hero-section p {
+  color: #64748B !important;
+}
+
+[data-theme='light'] #hero-badge {
+  background-color: #FFFFFF !important;
+  border-color: #FED7AA !important;
+  color: #EA580C !important;
+}
+
+[data-theme='light'] #hero-telegram-cta-btn {
+  background-color: #FFFFFF !important;
+  border-color: #FED7AA !important;
+  color: #EA580C !important;
+}
+
+[data-theme='light'] #hero-feature-row {
+  color: #64748B !important;
+}
+
+[data-theme='light'] #hero-avatar-wrapper {
+  background-color: #FFFFFF !important;
+}
+
+[data-theme='light'] #hero-avatar-badge {
+  background-color: #FFFFFF !important;
+  border-color: #FED7AA !important;
+  color: #EA580C !important;
+}
+
+[data-theme='light'] #hero-banner-section,
+[data-theme='light'] #community-materials-spotlight,
+[data-theme='light'] #telegram-community-banner {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FFF7ED 60%, #FFEDD5 100%) !important;
+  border-color: rgba(249, 115, 22, 0.3) !important;
+  box-shadow: 0 4px 20px -4px rgba(249, 115, 22, 0.08) !important;
+}
+
+[data-theme='light'] #all-students-ecosystem .bg-\[\#0f111a\] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+}
+
+[data-theme='light'] #all-students-ecosystem .bg-\[\#161824\] {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+  color: #334155 !important;
+}
+
+/* 12. Footer in Light Mode */
+[data-theme='light'] #home-footer {
+  border-color: #E5E7EB !important;
+}
+
+[data-theme='light'] #home-footer .text-slate-400 {
+  color: #64748B !important;
+}
+
+/* 13. Portal Shell & Viewer in Light Mode */
+[data-theme='light'] #portal-viewer-modal {
+  background-color: #FFFFFF !important;
+  color: #111827 !important;
+}
+
+[data-theme='light'] #portal-viewer-header {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme='light'] #portal-viewer-header .text-white {
+  color: #111827 !important;
+}
+
+[data-theme='light'] #portal-study-timer {
+  background-color: #FFF7ED !important;
+  border-color: #FED7AA !important;
+  color: #C2410C !important;
+}
+
+[data-theme='light'] #portal-study-timer .text-orange-400,
+[data-theme='light'] #portal-study-timer .text-orange-300 {
+  color: #EA580C !important;
+}
+
+[data-theme='light'] #portal-workspace-panel {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: -4px 0 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+[data-theme='light'] #portal-workspace-panel > div:first-child {
+  background-color: #F8FAFC !important;
+  border-color: #E5E7EB !important;
+}
+
+[data-theme='light'] #portal-workspace-panel .bg-\[\#171a27\],
+[data-theme='light'] #portal-workspace-panel .bg-\[\#141724\],
+[data-theme='light'] #portal-workspace-panel .bg-\[\#161824\] {
+  background-color: #F8FAFC !important;
+  border-color: #E5E7EB !important;
+}
+
+[data-theme='light'] #portal-workspace-panel textarea {
+  background-color: #FFFFFF !important;
+  color: #111827 !important;
+  border-color: #E5E7EB !important;
+}
+
+[data-theme='light'] #portal-launch-screen {
+  background: #F8FAFC !important;
+}
+
+[data-theme='light'] #portal-launch-screen > div {
+  background: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+}
+
+[data-theme='light'] #portal-launch-screen .bg-\[\#1a1d2e\] {
+  background-color: #FFF7ED !important;
+  border-color: #FED7AA !important;
+}
+
+[data-theme='light'] #portal-launch-screen .text-white {
+  color: #111827 !important;
+}
+
+[data-theme='light'] #portal-launch-screen .text-slate-300,
+[data-theme='light'] #portal-launch-screen .text-slate-400 {
+  color: #64748B !important;
+}
+
+[data-theme='light'] #portal-viewer-loading {
+  background-color: rgba(255, 255, 255, 0.95) !important;
+}
+
+[data-theme='light'] #portal-viewer-loading .text-white {
+  color: #111827 !important;
+}
+
+[data-theme='light'] #portal-viewer-loading .text-slate-400 {
+  color: #64748B !important;
+}
+
+/* 14. PDF Reader in Light Mode */
+[data-theme='light'] .pdf-reader-toolbar {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  color: #111827 !important;
+}
+
+[data-theme='light'] .pdf-canvas-wrapper {
+  background-color: #EEF1F6 !important;
+}
+
+/* 15. Document Thumbnails & Preview Containers in Light Mode */
+[data-theme='light'] .bg-\[\#07090e\],
+[data-theme='light'] .bg-\[\#08090e\] {
+  background-color: #F1F5F9 !important;
+  border-color: #E2E8F0 !important;
+}
+
+[data-theme='light'] .bg-\[\#141622\] {
+  background-color: #FFFFFF !important;
+  border-color: #E5E7EB !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* 16. PDF Text Layer & Search Highlight Styles */
+.pdf-text-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  opacity: 1;
+  line-height: 1;
+  user-select: text;
+  -webkit-user-select: text;
+  pointer-events: auto;
+}
+
+.pdf-text-layer span {
+  color: transparent;
+  position: absolute;
+  white-space: pre;
+  cursor: text;
+  transform-origin: 0% 0%;
+}
+
+.pdf-text-layer ::selection {
+  background: rgba(249, 115, 22, 0.4);
+  color: #ffffff;
+}
+
+.pdf-search-highlight {
+  background-color: rgba(251, 191, 36, 0.7) !important;
+  color: #0f172a !important;
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(245, 158, 11, 0.9);
+}
+
+.pdf-search-highlight-active {
+  background-color: #f97316 !important;
+  color: #ffffff !important;
+  border-radius: 2px;
+  box-shadow: 0 0 0 2px #ea580c, 0 0 10px rgba(249, 115, 22, 0.8) !important;
+}
+
+/* ==========================================
+   Certificate Print Styles (A4 Landscape PDF)
+   ========================================== */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+  html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #0B0B0E !important;
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+  body * {
+    visibility: hidden;
+  }
+  #printable-certificate-container,
+  #printable-certificate-container * {
+    visibility: visible;
+  }
+  #printable-certificate-container {
+    position: fixed !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    margin: 0 !important;
+    padding: 24px !important;
+    background: #0B0B0E !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    z-index: 999999 !important;
+  }
+}
+
+
+
+

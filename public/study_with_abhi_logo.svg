@@ -1,0 +1,150 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <!-- Radial and Linear Gradients -->
+    <radialGradient id="bgGlow" cx="50%" cy="38%" r="50%">
+      <stop offset="0%" stop-color="#1f1008" />
+      <stop offset="60%" stop-color="#0d0e14" />
+      <stop offset="100%" stop-color="#07080c" />
+    </radialGradient>
+
+    <linearGradient id="orangeRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff7a00" />
+      <stop offset="50%" stop-color="#ff5500" />
+      <stop offset="100%" stop-color="#e64a00" />
+    </linearGradient>
+
+    <linearGradient id="orangeGlowBrush" x1="20%" y1="10%" x2="80%" y2="90%">
+      <stop offset="0%" stop-color="#ff7b00" stop-opacity="0.9" />
+      <stop offset="50%" stop-color="#ff5100" stop-opacity="0.75" />
+      <stop offset="100%" stop-color="#cc3300" stop-opacity="0" />
+    </linearGradient>
+
+    <linearGradient id="abhiTextGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ff7d1a" />
+      <stop offset="50%" stop-color="#ff6000" />
+      <stop offset="100%" stop-color="#e64800" />
+    </linearGradient>
+
+    <linearGradient id="penGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ff8c1a" />
+      <stop offset="100%" stop-color="#e64a00" />
+    </linearGradient>
+
+    <!-- Clip Path for the Outer Circle -->
+    <clipPath id="circleClip">
+      <circle cx="250" cy="250" r="236" />
+    </clipPath>
+
+    <!-- Halftone Pattern -->
+    <pattern id="dotGrid" x="0" y="0" width="12" height="12" patternUnits="userSpaceOnUse">
+      <circle cx="6" cy="6" r="1.5" fill="#ff6600" opacity="0.25" />
+    </pattern>
+  </defs>
+
+  <!-- Background Base -->
+  <circle cx="250" cy="250" r="248" fill="#ff6000" />
+  <circle cx="250" cy="250" r="242" fill="#07080c" />
+  <circle cx="250" cy="250" r="236" fill="url(#bgGlow)" />
+
+  <!-- Inside Clipped Content -->
+  <g clip-path="url(#circleClip)">
+    <!-- Halftone Side Grids -->
+    <rect x="20" y="80" width="100" height="200" fill="url(#dotGrid)" />
+    <rect x="380" y="80" width="100" height="200" fill="url(#dotGrid)" />
+
+    <!-- Orange Splash / Glow behind Character -->
+    <path d="M150 120 C 190 60, 310 50, 350 110 C 370 140, 390 190, 320 220 C 260 240, 180 230, 140 180 Z" fill="url(#orangeGlowBrush)" filter="blur(10px)" />
+    <path d="M210 50 L 320 180 L 260 220 L 170 110 Z" fill="#ff6600" opacity="0.6" filter="blur(8px)" />
+
+    <!-- Anime Boy Character (Back View, Facing Angle) -->
+    <!-- Neck / Skin shadow -->
+    <path d="M 235 150 L 265 150 L 270 175 L 230 175 Z" fill="#ffb088" />
+    <path d="M 250 150 L 270 150 L 272 170 L 250 170 Z" fill="#d97f59" />
+
+    <!-- Anime Hair (Dark / Highlights) -->
+    <g id="hair">
+      <path d="M 250 35 C 220 35, 195 55, 185 85 C 175 115, 185 145, 195 160 C 202 145, 210 135, 215 130 C 210 145, 215 155, 222 162 C 225 150, 235 140, 245 135 C 240 148, 245 158, 252 165 C 260 152, 275 142, 285 138 C 285 150, 292 155, 305 145 C 315 135, 320 115, 315 85 C 305 50, 280 35, 250 35 Z" fill="#12131a" stroke="#ff7700" stroke-width="1.5" />
+      <!-- Hair strands highlights -->
+      <path d="M 230 45 C 215 60, 205 85, 205 105" stroke="#2c2d3a" stroke-width="4" fill="none" stroke-linecap="round" />
+      <path d="M 260 42 C 275 55, 290 80, 295 105" stroke="#2c2d3a" stroke-width="4" fill="none" stroke-linecap="round" />
+      <path d="M 245 40 C 248 65, 250 90, 250 115" stroke="#36384a" stroke-width="3" fill="none" stroke-linecap="round" />
+      <!-- Orange edge rim light on hair -->
+      <path d="M 188 80 C 180 105, 185 130, 195 150" stroke="#ff7700" stroke-width="3" fill="none" stroke-linecap="round" />
+      <path d="M 312 80 C 318 100, 315 125, 305 145" stroke="#ff7700" stroke-width="3" fill="none" stroke-linecap="round" />
+    </g>
+
+    <!-- Hoodie / Jacket (Dark with Orange Rim Lighting) -->
+    <g id="hoodie">
+      <!-- Outer Body -->
+      <path d="M 140 270 C 150 200, 185 175, 225 170 L 275 170 C 315 175, 350 200, 360 270 L 375 320 L 125 320 Z" fill="#161822" stroke="#ff6a00" stroke-width="2" />
+      <!-- Hood Down Shape -->
+      <path d="M 205 172 C 205 172, 220 225, 250 225 C 280 225, 295 172, 295 172 C 310 185, 315 210, 300 238 C 285 260, 215 260, 200 238 C 185 210, 190 185, 205 172 Z" fill="#0d0e14" stroke="#ff6a00" stroke-width="1.5" />
+      <path d="M 225 190 C 235 235, 265 235, 275 190" stroke="#ff7700" stroke-width="2" fill="none" />
+      <!-- Shoulder Seams -->
+      <path d="M 185 205 C 170 240, 160 275, 155 310" stroke="#252838" stroke-width="3" fill="none" />
+      <path d="M 315 205 C 330 240, 340 275, 345 310" stroke="#252838" stroke-width="3" fill="none" />
+      <!-- Orange Rim Glow on Shoulders -->
+      <path d="M 145 260 C 152 215, 180 185, 215 175" stroke="#ff7700" stroke-width="3.5" fill="none" />
+      <path d="M 355 260 C 348 215, 320 185, 285 175" stroke="#ff7700" stroke-width="3.5" fill="none" />
+    </g>
+
+    <!-- Dark gradient overlay behind typography for contrast -->
+    <rect x="0" y="210" width="500" height="290" fill="url(#bgGlow)" opacity="0.95" />
+    <path d="M 0 240 L 500 240 L 500 500 L 0 500 Z" fill="#07080c" opacity="0.75" />
+
+    <!-- Typography: "STUDY" -->
+    <text x="250" y="270" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="54" fill="#ffffff" letter-spacing="4" style="text-transform: uppercase;">
+      STUDY
+    </text>
+
+    <!-- Divider: "— WITH —" -->
+    <g id="withDivider">
+      <line x1="85" y1="288" x2="200" y2="288" stroke="#ff6600" stroke-width="3.5" stroke-linecap="round" />
+      <text x="250" y="293" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="18" fill="#ffffff" letter-spacing="3">
+        WITH
+      </text>
+      <line x1="300" y1="288" x2="415" y2="288" stroke="#ff6600" stroke-width="3.5" stroke-linecap="round" />
+    </g>
+
+    <!-- Typography: "ABHI" -->
+    <text x="250" y="375" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="950" font-size="96" fill="url(#abhiTextGrad)" letter-spacing="2" style="text-transform: uppercase; text-shadow: 0 4px 12px rgba(255, 85, 0, 0.4);">
+      ABHI
+    </text>
+
+    <!-- Open Book & Fountain Pen Icon at Bottom Center -->
+    <g id="bookAndPen" transform="translate(250, 420)">
+      <!-- Book Pages (White) -->
+      <!-- Left Pages -->
+      <path d="M -5 -3 C -35 -18, -85 -18, -120 -6 C -115 5, -80 0, -5 10 Z" fill="#ffffff" opacity="0.95" />
+      <path d="M -5 12 C -35 2, -85 2, -115 13 C -110 22, -75 16, -5 22 Z" fill="#ffffff" opacity="0.85" />
+      <path d="M -5 24 C -35 15, -85 15, -110 25 C -105 32, -75 27, -5 32 Z" fill="#ff6600" />
+
+      <!-- Right Pages -->
+      <path d="M 5 -3 C 35 -18, 85 -18, 120 -6 C 115 5, 80 0, 5 10 Z" fill="#ffffff" opacity="0.95" />
+      <path d="M 5 12 C 35 2, 85 2, 115 13 C 110 22, 75 16, 5 22 Z" fill="#ffffff" opacity="0.85" />
+      <path d="M 5 24 C 35 15, 85 15, 110 25 C 105 32, 75 27, 5 32 Z" fill="#ff6600" />
+
+      <!-- Pen Nib (Center Orange) -->
+      <path d="M 0 -35 L 12 -12 L 8 8 L -8 8 L -12 -12 Z" fill="url(#penGrad)" stroke="#ffffff" stroke-width="1.5" />
+      <circle cx="0" cy="-12" r="2.5" fill="#ffffff" />
+      <line x1="0" y1="-12" x2="0" y2="-33" stroke="#ffffff" stroke-width="1.5" />
+    </g>
+
+    <!-- Bottom Subtitle: "LEARN • FOCUS • SUCCEED" -->
+    <text x="250" y="468" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="14" fill="#ff8c26" letter-spacing="3">
+      LEARN • FOCUS • SUCCEED
+    </text>
+
+    <!-- Star & Line Accent -->
+    <g id="bottomStar" transform="translate(250, 482)">
+      <line x1="-50" y1="0" x2="-15" y2="0" stroke="#ff6600" stroke-width="1.5" />
+      <!-- 5-Point Star -->
+      <polygon points="0,-6 2,-1 7,-1 3,2 5,7 0,4 -5,7 -3,2 -7,-1 -2,-1" fill="#ff7700" />
+      <line x1="15" y1="0" x2="50" y2="0" stroke="#ff6600" stroke-width="1.5" />
+    </g>
+  </g>
+
+  <!-- Outer Orange Rings -->
+  <circle cx="250" cy="250" r="240" fill="none" stroke="url(#orangeRing)" stroke-width="5" />
+  <circle cx="250" cy="250" r="246" fill="none" stroke="#ff8000" stroke-width="1.5" opacity="0.6" />
+</svg>
