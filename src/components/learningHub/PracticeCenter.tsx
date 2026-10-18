@@ -143,7 +143,7 @@ export const PracticeCenter: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `ABHYVEXA_Flashcards.tsv`;
+    a.download = `StudyWithAbhi_Flashcards.tsv`;
     a.click();
     URL.revokeObjectURL(url);
   };

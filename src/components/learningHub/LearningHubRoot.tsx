@@ -16,7 +16,6 @@ import { ToolsDirectory } from './ToolsDirectory';
 import { AnalyticsView } from './AnalyticsView';
 import { SettingsModal } from './SettingsModal';
 import { CertificateCenter } from './certificate/CertificateCenter';
-import { AbhyvexaLogo } from '../AbhyvexaLogo';
 
 interface LearningHubRootProps {
   onBackToMainWebsite?: () => void;
@@ -175,25 +174,6 @@ export const LearningHubRoot: React.FC<LearningHubRootProps> = ({
         isOpen={showSettingsModal}
         onClose={() => setShowSettingsModal(false)}
       />
-
-      {/* ABHYVEXA Workspace Footer */}
-      <footer className="mt-auto border-t border-[#22222A] bg-[#0A0A0E] py-6 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#A1A1AA]">
-          <div className="flex items-center gap-2.5">
-            <AbhyvexaLogo className="w-5 h-5" />
-            <span className="font-extrabold text-[#F5F5F5] tracking-wider">
-              ABHY<span className="text-[#00F5C4]">VEXA</span>
-            </span>
-            <span className="text-[#27272A]">•</span>
-            <span className="text-[#71717A] text-[11px] font-medium tracking-wide">
-              LEARN BEYOND LIMITS
-            </span>
-          </div>
-          <div className="flex items-center gap-4 text-[11px] text-[#71717A]">
-            <span>Empowering Academic Excellence & Self-Paced Mastery</span>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };

@@ -2,14 +2,7 @@ import React, { useState } from 'react';
 import {
   Settings,
   Download,
-  Upload,
-  CheckCircle2,
-  AlertCircle,
-  Save,
-  Moon,
-  Sun,
-  Clock,
-  BookOpen
+  Upload
 } from 'lucide-react';
 import { learningHubService } from '../../services/learningHubService';
 import { LearningHubUserSettings } from '../../types/learningHub';

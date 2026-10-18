@@ -12,7 +12,8 @@
     --text-primary: #111827;
     --text-secondary: #64748B;
     --border: #E5E7EB;
-    --brand: #f97316;
+    --brand: #10B981;
+    --brand-teal: #14B8A6;
     --success: #10b981;
     --danger: #ef4444;
 
@@ -21,9 +22,12 @@
     --bg-surface: #FFFFFF;
     --bg-surface-elevated: #F8FAFC;
     --border-subtle: #E5E7EB;
-    --border-orange: rgba(249, 115, 22, 0.3);
-    --accent-orange: #ea580c;
-    --accent-amber: #f59e0b;
+    --border-orange: rgba(16, 185, 129, 0.3);
+    --border-emerald: rgba(16, 185, 129, 0.3);
+    --accent-orange: #10B981;
+    --accent-emerald: #10B981;
+    --accent-teal: #14B8A6;
+    --accent-amber: #14B8A6;
     --text-muted: #64748b;
   }
 
@@ -36,7 +40,8 @@
     --text-primary: #111827;
     --text-secondary: #64748B;
     --border: #E5E7EB;
-    --brand: #f97316;
+    --brand: #10B981;
+    --brand-teal: #14B8A6;
     --success: #10b981;
     --danger: #ef4444;
 
@@ -44,9 +49,12 @@
     --bg-surface: #FFFFFF;
     --bg-surface-elevated: #F8FAFC;
     --border-subtle: #E5E7EB;
-    --border-orange: rgba(249, 115, 22, 0.3);
-    --accent-orange: #ea580c;
-    --accent-amber: #f59e0b;
+    --border-orange: rgba(16, 185, 129, 0.3);
+    --border-emerald: rgba(16, 185, 129, 0.3);
+    --accent-orange: #10B981;
+    --accent-emerald: #10B981;
+    --accent-teal: #14B8A6;
+    --accent-amber: #14B8A6;
     --text-muted: #64748b;
   }
 
@@ -54,25 +62,26 @@
     color-scheme: dark !important;
     --background: #0D0D0F;
     --surface: #141418;
-    --surface-secondary: #181920;
-    --surface-tertiary: #1E1F28;
+    --surface-secondary: #1A1A22;
+    --surface-tertiary: #20202A;
     --text-primary: #F5F5F5;
     --text-secondary: #A1A1AA;
     --border: #27272A;
     --brand: #10B981;
     --brand-teal: #14B8A6;
-    --success: #10B981;
+    --success: #10b981;
     --danger: #ef4444;
 
     --bg-base: #0D0D0F;
     --bg-surface: #141418;
-    --bg-surface-elevated: #181920;
+    --bg-surface-elevated: #1A1A22;
     --border-subtle: #27272A;
     --border-orange: rgba(16, 185, 129, 0.35);
-    --accent-orange: #10b981;
-    --accent-amber: #14b8a6;
-    --accent-emerald: #10b981;
-    --accent-teal: #14b8a6;
+    --border-emerald: rgba(16, 185, 129, 0.35);
+    --accent-orange: #10B981;
+    --accent-emerald: #10B981;
+    --accent-teal: #14B8A6;
+    --accent-amber: #34d399;
     --text-muted: #A1A1AA;
   }
 
@@ -119,9 +128,9 @@
   position: fixed;
   inset: 0;
   background: 
-    radial-gradient(circle at 15% 10%, rgba(16, 185, 129, 0.04), transparent 50%),
-    radial-gradient(circle at 85% 80%, rgba(20, 184, 166, 0.03), transparent 50%),
-    radial-gradient(circle at 50% 40%, rgba(56, 189, 248, 0.02), transparent 60%);
+    radial-gradient(circle at 15% 10%, rgba(16, 185, 129, 0.05), transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(20, 184, 166, 0.04), transparent 50%),
+    radial-gradient(circle at 50% 40%, rgba(52, 211, 153, 0.02), transparent 60%);
   pointer-events: none;
   z-index: 0;
   transition: background 0.3s ease;
@@ -129,9 +138,9 @@
 
 [data-theme='dark'] .ambient-glow-mesh {
   background: 
-    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.09), transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(20, 184, 166, 0.07), transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.03), transparent 60%);
+    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(20, 184, 166, 0.09), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(52, 211, 153, 0.04), transparent 60%);
 }
 
 /* Glassmorphic Panel */
@@ -150,18 +159,20 @@
 }
 
 /* Emerald & Teal Glow utilities */
-.glow-orange,
 .glow-emerald {
   box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
 }
 
-.glow-orange-sm,
 .glow-emerald-sm {
   box-shadow: 0 0 15px -3px rgba(16, 185, 129, 0.25);
 }
 
-.glow-teal {
-  box-shadow: 0 0 25px -5px rgba(20, 184, 166, 0.35);
+.glow-orange {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
+}
+
+.glow-orange-sm {
+  box-shadow: 0 0 15px -3px rgba(16, 185, 129, 0.25);
 }
 
 /* Top Progress loader animation */

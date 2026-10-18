@@ -7,7 +7,7 @@ import {
   sendOpenRouterChat,
   OPENROUTER_DEFAULT_MODEL,
   extractJsonFromText
-} from './openRouterService.ts';
+} from './openRouterService.js';
 
 export const learningHubRouter = express.Router();
 
@@ -1555,7 +1555,7 @@ learningHubRouter.get('/certificates/verify/:certId', (req, res) => {
     return res.status(404).json({
       success: false,
       verified: false,
-      error: 'Certificate not found in ABHYVEXA Registry'
+      error: 'Certificate not found in ABHYVEXA Credential Registry'
     });
   }
 

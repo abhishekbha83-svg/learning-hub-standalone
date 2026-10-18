@@ -7,11 +7,6 @@ import {
   Search,
   X,
   CheckCircle2,
-  Calendar,
-  BookOpen,
-  User,
-  Hash,
-  ExternalLink,
   Award
 } from 'lucide-react';
 
@@ -90,7 +85,7 @@ export const PublicCertificateVerificationModal: React.FC<PublicCertificateVerif
               type="text"
               value={certIdInput}
               onChange={(e) => setCertIdInput(e.target.value)}
-              placeholder="e.g. ABHYVEXA-CERT-2026-XXXX-XXXX"
+              placeholder="e.g. ABHY-CERT-2026-XXXX-XXXX"
               className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-xs sm:text-sm focus:outline-none focus:border-emerald-500"
               required
             />

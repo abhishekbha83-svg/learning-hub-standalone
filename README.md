@@ -1,26 +1,22 @@
-# ABHYVEXA — LEARN BEYOND LIMITS
+# ABHYVEXA — Learn Beyond Limits
 
-ABHYVEXA is a modern learning workspace for courses, study planning, syllabus tracking, practice, and academic productivity.
+ABHYVEXA is a modern, full-stack learning workspace for YouTube course conversion, study planning, syllabus tracking, practice tools, analytics, and verifiable academic certificates.
 
 ## Key Features
 
-- **Course Converter**: Transform any YouTube playlist into an organized, distraction-free study course with automated chapters, timestamped notes, and lecture tracking.
-- **Curated Catalogue**: High-yield verified curricula across competitive exams and STEM subjects.
-- **Integrated Study Planner**: Smart daily scheduling, focus timers (Pomodoro), and habit streak tracking.
-- **Syllabus Tracker**: Real-time completion breakdown with chapter status and high-yield revision bookmarks.
-- **Practice Center**: Active recall Leitner flashcards, customizable diagnostic practice quizzes, and formula sheets.
-- **AI Academic Center**: Dedicated tutor, lecture summarization, concept explanations, and personalized revision recommendations.
-- **Academic Credentials**: Verifiable milestone certificates (25%, 50%, 75%, 100%) with tamper-proof cryptographic verification.
-- **Productivity Analytics & Tools**: Heatmap study logging, subject time breakdown, formula cheat sheets, scientific calculators, and focus timers.
+- **YouTube Course Conversion**: Convert any YouTube playlist or video into structured, distraction-free course modules with timestamped notes.
+- **Curated Course Catalog**: Pre-indexed courses across JEE, NEET, UPSC, STEM, and Full-Stack Web Development.
+- **Study Planner & Syllabus Tracker**: Daily task scheduling, countdown timer, and comprehensive syllabus progress tracking.
+- **AI Study Center**: AI Tutor, lecture summaries, adaptive quizzes, flashcard generator, and personalized study recommendations.
+- **Certificate System**: Issue, view, print, and publicly verify tamper-proof milestone credentials.
+- **Analytics & Heatmap**: 365-day active study activity heatmap, streak tracking, and verified study time metrics.
 
-## Running Locally
+## Run Locally
 
-1. Install Node.js 22 (or 20+).
-2. Install dependencies: `npm install`
-3. Optional AI Features: configure `OPENROUTER_API_KEY` in `.env`.
-4. Start development workspace: `npm run dev`
-5. Open `http://localhost:3000`
+1. Install Node.js 22 or newer.
+2. In this folder, run `npm install`.
+3. Copy `.env.example` to `.env`. Add `OPENROUTER_API_KEY` for AI features.
+4. Run `npm run dev`, then open `http://localhost:3000`.
 
-Production build:
-`npm run build`
-`npm start`
+`npm run build` creates the production bundle in `dist/`.
+`npm start` serves the production build via Express.

@@ -1,233 +1,162 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 interface AbhyvexaLogoProps {
   className?: string;
   size?: number | string;
   showTagline?: boolean;
-  variant?: 'icon' | 'badge' | 'full';
-  alt?: string;
 }
 
 export const AbhyvexaLogo: React.FC<AbhyvexaLogoProps> = ({
   className = 'w-full h-full',
   size,
-  showTagline = false,
-  variant = 'full',
-  alt = 'ABHYVEXA — Learn Beyond Limits'
+  showTagline = true
 }) => {
-  const [imageError, setImageError] = useState(false);
-
-  // If raster PNG is present in public directory, render image with preserved aspect ratio
-  if (!imageError) {
-    return (
-      <div
-        className={`relative inline-flex items-center justify-center flex-shrink-0 ${className}`}
-        style={size ? { width: size, height: size } : undefined}
-      >
-        <img
-          src="/abhyvexa_logo.png"
-          alt={alt}
-          referrerPolicy="no-referrer"
-          className="w-full h-full object-contain rounded-xl"
-          onError={() => setImageError(true)}
-        />
-      </div>
-    );
-  }
-
-  // Vector SVG Fallback (High-fidelity reproduction of the official ABHYVEXA emblem)
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 500 500"
+      viewBox="0 0 800 800"
       width={size || '100%'}
       height={size || '100%'}
       className={className}
       style={{ display: 'block' }}
-      aria-label={alt}
+      aria-label="ABHYVEXA — Learn Beyond Limits"
     >
       <defs>
+        {/* Background Gradients */}
         <radialGradient id="abhyGlowBgReact" cx="50%" cy="40%" r="60%">
-          <stop offset="0%" stopColor="#0a1f1a" />
-          <stop offset="50%" stopColor="#061210" />
-          <stop offset="100%" stopColor="#040608" />
+          <stop offset="0%" stopColor="#082b26" stopOpacity="0.6" />
+          <stop offset="50%" stopColor="#0a141a" stopOpacity="0.8" />
+          <stop offset="100%" stopColor="#07080c" stopOpacity="1" />
         </radialGradient>
 
+        {/* Neon Emerald Outer Border Gradient */}
         <linearGradient id="neonBorderGradReact" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00f5c4" />
-          <stop offset="45%" stopColor="#00e5a3" />
-          <stop offset="70%" stopColor="#14b8a6" />
-          <stop offset="100%" stopColor="#00f0ff" />
-        </linearGradient>
-
-        <linearGradient id="orbitGradReact" x1="0%" y1="100%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="#00f5c4" stopOpacity="0.95" />
-          <stop offset="50%" stopColor="#00d296" stopOpacity="0.9" />
-          <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.95" />
-        </linearGradient>
-
-        <linearGradient id="leftBladeGradReact" x1="20%" y1="10%" x2="80%" y2="100%">
-          <stop offset="0%" stopColor="#a7f3d0" />
-          <stop offset="35%" stopColor="#34d399" />
-          <stop offset="70%" stopColor="#059669" />
-          <stop offset="100%" stopColor="#064e3b" />
-        </linearGradient>
-
-        <linearGradient id="rightBladeGradReact" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="35%" stopColor="#e2e8f0" />
-          <stop offset="70%" stopColor="#a7f3d0" />
-          <stop offset="100%" stopColor="#10b981" />
-        </linearGradient>
-
-        <linearGradient id="vexaTextGradReact" x1="0%" y1="0%" x2="100%" y2="0%">
           <stop offset="0%" stopColor="#10b981" />
-          <stop offset="50%" stopColor="#14b8a6" />
-          <stop offset="100%" stopColor="#00f5c4" />
+          <stop offset="30%" stopColor="#06b6d4" />
+          <stop offset="70%" stopColor="#10b981" />
+          <stop offset="100%" stopColor="#3b82f6" />
         </linearGradient>
 
+        {/* Metallic Silver Gradient */}
         <linearGradient id="silverGradReact" x1="0%" y1="0%" x2="0%" y2="100%">
           <stop offset="0%" stopColor="#ffffff" />
-          <stop offset="60%" stopColor="#f1f5f9" />
+          <stop offset="50%" stopColor="#f1f5f9" />
           <stop offset="100%" stopColor="#cbd5e1" />
         </linearGradient>
 
-        <filter id="neonSoftGlowReact" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="6" result="blur" />
-          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        {/* Vibrant Cyan / Emerald Gradient for A & Accents */}
+        <linearGradient id="cyanEmeraldGradReact" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#a7f3d0" />
+          <stop offset="35%" stopColor="#34d399" />
+          <stop offset="70%" stopColor="#06b6d4" />
+          <stop offset="100%" stopColor="#0284c7" />
+        </linearGradient>
+
+        {/* Ring Swoosh Gradient */}
+        <linearGradient id="swooshGradReact" x1="0%" y1="100%" x2="100%" y2="0%">
+          <stop offset="0%" stopColor="#059669" />
+          <stop offset="40%" stopColor="#10b981" />
+          <stop offset="80%" stopColor="#06b6d4" />
+          <stop offset="100%" stopColor="#67e8f9" />
+        </linearGradient>
+
+        {/* Glow Filters */}
+        <filter id="neonGlowReact" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="12" result="blur1" />
+          <feGaussianBlur stdDeviation="24" result="blur2" />
+          <feMerge>
+            <feMergeNode in="blur2" />
+            <feMergeNode in="blur1" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
         </filter>
+
+        <filter id="softGlowReact" x="-20%" y="-20%" width="140%" height="140%">
+          <feGaussianBlur stdDeviation="6" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" opacity="0.8" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+
+        {/* Clip Path for Rounded Container */}
+        <clipPath id="containerClipReact">
+          <rect x="40" y="40" width="720" height="720" rx="140" ry="140" />
+        </clipPath>
       </defs>
 
-      {/* Base Squircle & Background */}
-      <rect x="15" y="15" width="470" height="470" rx="95" ry="95" fill="#040608" />
-      <rect x="18" y="18" width="464" height="464" rx="92" ry="92" fill="url(#abhyGlowBgReact)" />
+      {/* Base Dark Background */}
+      <rect width="800" height="800" fill="#07080c" />
 
-      {/* Outer Neon Glowing Border */}
-      <rect
-        x="20"
-        y="20"
-        width="460"
-        height="460"
-        rx="90"
-        ry="90"
-        fill="none"
-        stroke="url(#neonBorderGradReact)"
-        strokeWidth="3"
-        filter="url(#neonSoftGlowReact)"
-        opacity="0.9"
-      />
-      {/* Corner Glow Accents */}
-      <circle cx="110" cy="22" r="3" fill="#ffffff" filter="url(#neonSoftGlowReact)" />
-      <circle cx="390" cy="22" r="3" fill="#ffffff" filter="url(#neonSoftGlowReact)" />
-      <circle cx="22" cy="250" r="3.5" fill="#00f5c4" filter="url(#neonSoftGlowReact)" />
-      <circle cx="478" cy="250" r="3.5" fill="#00f5c4" filter="url(#neonSoftGlowReact)" />
-      <circle cx="250" cy="478" r="3" fill="#00f5c4" filter="url(#neonSoftGlowReact)" />
+      {/* Main Container Base with Inner Glow */}
+      <g clipPath="url(#containerClipReact)">
+        <rect x="40" y="40" width="720" height="720" fill="url(#abhyGlowBgReact)" />
+        
+        {/* Ambient Center Light Flare */}
+        <circle cx="400" cy="360" r="280" fill="#10b981" opacity="0.12" filter="blur(50px)" />
+        <circle cx="400" cy="300" r="180" fill="#06b6d4" opacity="0.15" filter="blur(40px)" />
 
-      {/* Central Ambience */}
-      <circle cx="250" cy="210" r="130" fill="#00f5c4" opacity="0.08" />
+        {/* MAIN EMBLEM: THE STYLIZED 'A' */}
+        <g transform="translate(400, 310)">
+          {/* Left Leg (Sleek Curve Outer & Inner) */}
+          <path d="M 0 -190 L -65 -160 C -120 -40, -170 80, -215 130 C -200 135, -170 135, -135 110 C -95 65, -55 -20, -15 -110 Z" fill="url(#cyanEmeraldGradReact)" />
+          
+          {/* Right Leg (Sharp Metallic Blade) */}
+          <path d="M 0 -190 L 15 -110 C 55 -20, 100 65, 145 125 C 180 140, 215 135, 230 120 C 180 65, 120 -50, 65 -160 Z" fill="url(#silverGradReact)" />
+          <path d="M 0 -190 L 65 -160 C 115 -60, 175 40, 220 115 C 205 125, 185 125, 165 110 C 120 40, 65 -50, 15 -110 Z" fill="#e2e8f0" opacity="0.9" />
 
-      {/* 1. Orbital Ring (Rear) */}
-      <ellipse
-        cx="255"
-        cy="195"
-        rx="145"
-        ry="55"
-        transform="rotate(-24 255 195)"
-        fill="none"
-        stroke="url(#orbitGradReact)"
-        strokeWidth="8"
-        strokeLinecap="round"
-        opacity="0.45"
-      />
+          {/* Open Book Icon inside lower 'A' notch */}
+          <g transform="translate(0, 75) scale(1.15)">
+            <path d="M -2 -15 C -25 -28, -55 -25, -75 -12 L -75 25 C -55 12, -25 15, -2 28 Z" fill="#ffffff" filter="url(#softGlowReact)" opacity="0.95" />
+            <path d="M -2 -10 C -25 -22, -52 -20, -70 -8 L -70 20 C -52 8, -25 10, -2 22 Z" fill="url(#cyanEmeraldGradReact)" opacity="0.85" />
+            
+            <path d="M 2 -15 C 25 -28, 55 -25, 75 -12 L 75 25 C 55 12, 25 15, 2 28 Z" fill="#ffffff" filter="url(#softGlowReact)" opacity="0.95" />
+            <path d="M 2 -10 C 25 -22, 52 -20, 70 -8 L 70 20 C 52 8, 25 10, 2 22 Z" fill="url(#cyanEmeraldGradReact)" opacity="0.85" />
 
-      {/* 2. Main Emblem: 'A' Character */}
-      {/* Left Curved Blade */}
-      <path
-        d="M 248 85 C 248 85, 235 120, 200 190 C 170 248, 115 315, 115 315 C 135 318, 175 305, 205 270 C 220 252, 245 180, 248 160 Z"
-        fill="url(#leftBladeGradReact)"
-      />
+            <path d="M 0 -18 L 0 30" stroke="#10b981" strokeWidth="4" strokeLinecap="round" />
+          </g>
 
-      {/* Swooping 3D Ribbon Wrap extending from left leg over the front */}
-      <path
-        d="M 100 270 C 95 230, 140 185, 200 170 C 265 152, 330 195, 345 220 C 315 208, 250 185, 190 205 C 145 220, 110 250, 100 270 Z"
-        fill="url(#orbitGradReact)"
-        filter="url(#neonSoftGlowReact)"
-      />
+          {/* Dynamic 3D Orbital Swoosh Ring */}
+          <path d="M -240 60 C -260 -10, -160 -90, -10 -10 C 130 65, 240 10, 200 -70 C 180 -95, 120 -110, 50 -80 C 110 -60, 170 -40, 175 -15 C 180 25, 90 40, -40 -15 C -150 -65, -230 -20, -200 40 Z" fill="url(#swooshGradReact)" filter="url(#neonGlowReact)" />
+          
+          {/* Bright Sparkle / 4-Point Star at Top Right of Ring */}
+          <g transform="translate(205, -75) scale(1.3)" filter="url(#softGlowReact)">
+            <path d="M 0 -22 Q 0 0 -22 0 Q 0 0 0 22 Q 0 0 22 0 Q 0 0 0 -22 Z" fill="#ffffff" />
+            <circle cx="0" cy="0" r="5" fill="#a7f3d0" />
+          </g>
+        </g>
 
-      {/* Right Sharp Precision Blade / Wedge */}
-      <path d="M 250 80 L 385 315 L 340 315 L 282 205 L 246 130 Z" fill="url(#rightBladeGradReact)" />
+        {/* BRAND TYPOGRAPHY: ABHYVEXA */}
+        <g transform="translate(400, 595)">
+          <text x="0" y="0" textAnchor="middle" fontFamily="'Plus Jakarta Sans', 'Montserrat', 'Inter', sans-serif" fontWeight="900" fontSize="78" letterSpacing="12" fill="url(#silverGradReact)" filter="url(#softGlowReact)">
+            ABHYVEXA
+          </text>
+          <text x="0" y="0" textAnchor="middle" fontFamily="'Plus Jakarta Sans', 'Montserrat', 'Inter', sans-serif" fontWeight="900" fontSize="78" letterSpacing="12" fill="none" stroke="url(#cyanEmeraldGradReact)" strokeWidth="2">
+            ABHYVEXA
+          </text>
 
-      {/* Central Apex Shading */}
-      <path d="M 247 80 L 253 80 L 278 185 L 240 185 Z" fill="#ffffff" opacity="0.25" />
-
-      {/* 3. Open Book Icon in Lower Core */}
-      <g transform="translate(250, 280)">
-        <path d="M -5 18 C -25 8, -50 8, -58 14 C -56 5, -30 2, -5 8 Z" fill="#00e5a3" opacity="0.7" />
-        <path d="M 5 18 C 25 8, 50 8, 58 14 C 56 5, 30 2, 5 8 Z" fill="#00e5a3" opacity="0.7" />
-        <path d="M -4 4 C -22 -6, -46 -6, -56 2 C -54 18, -26 12, -4 20 Z" fill="#ffffff" />
-        <path d="M -8 6 C -22 -2, -40 -2, -48 4 C -46 14, -26 10, -8 16 Z" fill="#e2e8f0" opacity="0.4" />
-        <path d="M 4 4 C 22 -6, 46 -6, 56 2 C 54 18, 26 12, 4 20 Z" fill="#ffffff" />
-        <path d="M 8 6 C 22 -2, 40 -2, 48 4 C 46 14, 26 10, 8 16 Z" fill="#a7f3d0" opacity="0.5" />
-        <path d="M 0 4 L 0 22" stroke="#00f5c4" strokeWidth="2.5" strokeLinecap="round" />
+          {showTagline && (
+            <g transform="translate(0, 50)">
+              <line x1="-280" y1="-8" x2="-200" y2="-8" stroke="#34d399" strokeWidth="3.5" strokeLinecap="round" />
+              <text x="0" y="0" textAnchor="middle" fontFamily="'Plus Jakarta Sans', 'Montserrat', sans-serif" fontWeight="800" fontSize="22" letterSpacing="9" fill="#e2e8f0">
+                LEARN BEYOND LIMITS
+              </text>
+              <line x1="200" y1="-8" x2="280" y2="-8" stroke="#34d399" strokeWidth="3.5" strokeLinecap="round" />
+            </g>
+          )}
+        </g>
       </g>
 
-      {/* 4. Star Sparkle at Top-Right */}
-      <g transform="translate(382, 140)">
-        <path
-          d="M 0 -22 C 1 -7, 7 -1, 22 0 C 7 1, 1 7, 0 22 C -1 7, -7 1, -22 0 C -7 -1, -1 -7, 0 -22 Z"
-          fill="#ffffff"
-          filter="url(#neonSoftGlowReact)"
-        />
-        <circle cx="0" cy="0" r="4" fill="#a7f3d0" />
-      </g>
+      {/* NEON EMBLEM CONTAINER BORDER & GLOW */}
+      <rect x="40" y="40" width="720" height="720" rx="140" ry="140" fill="none" stroke="url(#neonBorderGradReact)" strokeWidth="5" filter="url(#neonGlowReact)" opacity="0.95" />
+      <rect x="40" y="40" width="720" height="720" rx="140" ry="140" fill="none" stroke="#67e8f9" strokeWidth="2" opacity="0.8" />
 
-      {/* 5. Typography: "ABHYVEXA" */}
-      <g transform="translate(250, 385)">
-        <text
-          x="-215"
-          y="0"
-          fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-          fontWeight="900"
-          fontSize="52"
-          fill="url(#silverGradReact)"
-          letterSpacing="4"
-        >
-          ABHY
-        </text>
-        <text
-          x="32"
-          y="0"
-          fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-          fontWeight="900"
-          fontSize="52"
-          fill="url(#vexaTextGradReact)"
-          letterSpacing="4"
-          filter="url(#neonSoftGlowReact)"
-        >
-          VEXA
-        </text>
-      </g>
-
-      {/* 6. Tagline: "— LEARN BEYOND LIMITS —" */}
-      <g transform="translate(250, 422)">
-        <line x1="-195" y1="-5" x2="-145" y2="-5" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
-        <text
-          x="0"
-          y="0"
-          textAnchor="middle"
-          fontFamily="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
-          fontWeight="700"
-          fontSize="14.5"
-          fill="#f1f5f9"
-          letterSpacing="5"
-        >
-          LEARN BEYOND LIMITS
-        </text>
-        <line x1="145" y1="-5" x2="195" y2="-5" stroke="#10b981" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
-      </g>
+      {/* Corner Light Flares */}
+      <circle cx="180" cy="40" r="15" fill="#ffffff" opacity="0.7" filter="blur(6px)" />
+      <circle cx="620" cy="40" r="15" fill="#34d399" opacity="0.7" filter="blur(6px)" />
+      <circle cx="40" cy="400" r="15" fill="#06b6d4" opacity="0.6" filter="blur(6px)" />
+      <circle cx="760" cy="400" r="15" fill="#10b981" opacity="0.6" filter="blur(6px)" />
+      <circle cx="400" cy="760" r="18" fill="#34d399" opacity="0.8" filter="blur(8px)" />
     </svg>
   );
 };
-
-// Re-export as StudyWithAbhiLogo for zero-breaking-change backwards compatibility
-export const StudyWithAbhiLogo = AbhyvexaLogo;

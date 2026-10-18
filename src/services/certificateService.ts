@@ -80,7 +80,7 @@ class CertificateService {
 
   // Generate an anti-tamper verification hash based on issuance payload
   private generateVerificationCode(userId: string, courseId: string, milestone: number, timestamp: number): string {
-    const raw = `${userId}:${courseId}:${milestone}:${timestamp}:SWA_AUTH_KEY_2026`;
+    const raw = `${userId}:${courseId}:${milestone}:${timestamp}:ABHY_AUTH_KEY_2026`;
     let hash = 0;
     for (let i = 0; i < raw.length; i++) {
       const char = raw.charCodeAt(i);
@@ -287,7 +287,7 @@ class CertificateService {
       verificationUrl,
       verificationCode,
       issuer: {
-        platform: 'ABHYVEXA — LEARN BEYOND LIMITS',
+        platform: 'ABHYVEXA — Learn Beyond Limits',
         engine: 'Automated Academic Lecture Verification Engine',
         authority: 'ABHYVEXA Digital Credential Registry',
         websiteUrl: baseUrl
@@ -355,7 +355,7 @@ class CertificateService {
 
     return {
       verified: false,
-      error: 'Certificate not found. The provided credential ID could not be verified in the ABHYVEXA registry.',
+      error: 'Certificate not found. The provided credential ID could not be verified in the ABHYVEXA credential registry.',
       verifiedAt: Date.now()
     };
   }
@@ -420,7 +420,7 @@ class CertificateService {
     ctx.fillStyle = '#10B981';
     ctx.font = 'bold 36px sans-serif';
     ctx.letterSpacing = '6px';
-    ctx.fillText('STUDY WITH ABHI  •  LEARNING HUB', width / 2, 180);
+    ctx.fillText('ABHYVEXA  •  LEARN BEYOND LIMITS', width / 2, 180);
 
     // Main Title based on milestone
     ctx.fillStyle = '#FFFFFF';
@@ -480,7 +480,6 @@ class CertificateService {
     ctx.fillStyle = '#34D399';
     ctx.font = 'bold 64px sans-serif';
     // Wrap course title if too long
-    const maxCourseWidth = width - 400;
     const courseTitle = `"${certificate.courseSnapshot.courseTitle}"`;
     ctx.fillText(courseTitle, width / 2, 820);
 
@@ -515,7 +514,7 @@ class CertificateService {
     ctx.fillText('ISSUING PLATFORM', 220, bottomY + 120);
     ctx.fillStyle = '#10B981';
     ctx.font = 'bold 32px sans-serif';
-    ctx.fillText('ABHYVEXA — LEARN BEYOND LIMITS', 220, bottomY + 160);
+    ctx.fillText('ABHYVEXA — Learn Beyond Limits', 220, bottomY + 160);
     ctx.fillStyle = '#475569';
     ctx.font = '24px sans-serif';
     ctx.fillText('Verified Digital Educational Credential', 220, bottomY + 195);
@@ -541,7 +540,7 @@ class CertificateService {
     ctx.textAlign = 'center';
     ctx.fillStyle = '#F59E0B';
     ctx.font = 'bold 22px sans-serif';
-    ctx.fillText('STUDY WITH ABHI', sealX, sealY - 30);
+    ctx.fillText('ABHYVEXA', sealX, sealY - 30);
     ctx.fillStyle = '#10B981';
     ctx.font = '900 36px sans-serif';
     ctx.fillText('VERIFIED', sealX, sealY + 10);

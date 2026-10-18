@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Sparkles,
   Flame,
-  Clock,
   BookOpen,
   Calendar,
   Layers,
@@ -82,35 +80,37 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-[#0D0D0F]/95 backdrop-blur-md border-b border-[#22222A] text-white">
+    <header className="sticky top-0 z-40 bg-[#0D0D0F]/95 backdrop-blur-md border-b border-[#27272A] text-white">
       {/* Top Banner Bar */}
       <div className="max-w-7xl mx-auto px-3 sm:px-6">
         <div className="flex items-center justify-between h-16 gap-3">
-          {/* Optional host-site return link and Learning Hub brand */}
+          {/* Main Brand Area */}
           <div className="flex items-center gap-3">
             {onBackToMain && (
               <button
                 onClick={onBackToMain}
-                title="Return to the host website"
-                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-300 hover:text-white bg-[#1A1A22] hover:bg-[#252530] border border-[#2A2A38] transition-colors"
+                title="Return to main workspace"
+                className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-gray-300 hover:text-white bg-[#141418] hover:bg-[#202028] border border-[#27272A] transition-colors"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span className="hidden sm:inline">Main Site</span>
               </button>
             )}
 
-            <div className="flex items-center gap-2.5">
-              <AbhyvexaLogo className="w-8 sm:w-9 h-8 sm:h-9 flex-shrink-0" />
+            <div className="flex items-center gap-2.5 cursor-pointer" onClick={() => onSelectTab('overview')}>
+              <div className="w-9 sm:w-10 h-9 sm:h-10 rounded-xl overflow-hidden flex-shrink-0 shadow-md shadow-emerald-500/20 border border-emerald-500/30 bg-[#141418]">
+                <AbhyvexaLogo className="w-full h-full object-cover" />
+              </div>
               <div>
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span className="font-extrabold text-sm sm:text-base tracking-wider text-white">
-                    ABHY<span className="text-[#00F5C4]">VEXA</span>
+                  <span className="font-black text-base sm:text-lg tracking-tight text-white">
+                    ABHYVEXA
                   </span>
-                  <span className="px-1.5 py-0.2 rounded text-[8px] sm:text-[9px] font-bold bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30 tracking-widest uppercase">
+                  <span className="px-1.5 sm:px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
                     PRO
                   </span>
                 </div>
-                <p className="text-[10px] text-[#A1A1AA] hidden md:block tracking-wide font-medium">
+                <p className="text-[10px] sm:text-[11px] text-emerald-400/90 font-medium hidden md:block">
                   LEARN BEYOND LIMITS
                 </p>
               </div>
@@ -120,21 +120,21 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
           {/* Quick Badges: Pomodoro Timer, Streak, Target Countdown */}
           <div className="flex items-center gap-2">
             {/* Header Pomodoro Focus Bar */}
-            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#141418] border border-[#242432] text-xs">
-              <Timer className={`w-3.5 h-3.5 ${isPomodoroRunning ? 'text-amber-400 animate-pulse' : 'text-gray-400'}`} />
+            <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-xl bg-[#141418] border border-[#27272A] text-xs">
+              <Timer className={`w-3.5 h-3.5 ${isPomodoroRunning ? 'text-teal-400 animate-pulse' : 'text-gray-400'}`} />
               <span className="font-mono font-bold text-white text-xs sm:text-sm">
                 {formatTimer(pomodoroSeconds)}
               </span>
               <button
                 onClick={onTogglePomodoro}
-                className="p-1 rounded text-gray-300 hover:text-white hover:bg-[#22222E] transition-colors"
+                className="p-1 rounded text-gray-300 hover:text-white hover:bg-[#20202A] transition-colors"
                 title={isPomodoroRunning ? 'Pause Focus' : 'Start Focus'}
               >
-                {isPomodoroRunning ? <Pause className="w-3 h-3 text-amber-400" /> : <Play className="w-3 h-3 text-emerald-400 fill-emerald-400" />}
+                {isPomodoroRunning ? <Pause className="w-3 h-3 text-teal-400" /> : <Play className="w-3 h-3 text-emerald-400 fill-emerald-400" />}
               </button>
               <button
                 onClick={onResetPomodoro}
-                className="p-1 rounded text-gray-500 hover:text-gray-300 hover:bg-[#22222E] transition-colors"
+                className="p-1 rounded text-gray-500 hover:text-gray-300 hover:bg-[#20202A] transition-colors"
                 title="Reset Pomodoro"
               >
                 <RotateCcw className="w-3 h-3" />
@@ -142,14 +142,14 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
             </div>
 
             {/* Streak */}
-            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#141418] border border-[#242432] text-xs">
-              <Flame className="w-3.5 h-3.5 text-amber-400 fill-amber-400/20" />
+            <div className="hidden lg:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#141418] border border-[#27272A] text-xs">
+              <Flame className="w-3.5 h-3.5 text-emerald-400 fill-emerald-400/20" />
               <span className="font-bold text-white">{streak.streakDays}</span>
               <span className="text-gray-400 text-[10px]">d streak</span>
             </div>
 
             {/* Target Exam Countdown */}
-            <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#141418] border border-[#242432] text-xs">
+            <div className="hidden xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded-xl bg-[#141418] border border-[#27272A] text-xs">
               <span className="text-gray-400 text-[10px]">{settings.targetExamName}:</span>
               <span className="font-bold text-emerald-400">{daysLeft}d left</span>
             </div>
@@ -167,7 +167,7 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
             {/* Settings Trigger */}
             <button
               onClick={onOpenSettings}
-              className="p-2 rounded-xl text-gray-400 hover:text-white bg-[#141418] hover:bg-[#1E1E26] border border-[#242432] transition-colors"
+              className="p-2 rounded-xl text-gray-400 hover:text-white bg-[#141418] hover:bg-[#1E1E26] border border-[#27272A] transition-colors"
               title="ABHYVEXA Settings"
             >
               <Settings className="w-4 h-4" />
@@ -176,7 +176,7 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
             {/* Mobile Nav Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-xl text-gray-400 hover:text-white bg-[#141418] hover:bg-[#1E1E26] border border-[#242432] sm:hidden transition-colors"
+              className="p-2 rounded-xl text-gray-400 hover:text-white bg-[#141418] hover:bg-[#1E1E26] border border-[#27272A] sm:hidden transition-colors"
             >
               {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
@@ -184,8 +184,8 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
         </div>
       </div>
 
-      {/* Navigation Tabs Bar (Desktop Horizontal Scroll) */}
-      <div className="bg-[#111115] border-t border-[#1C1C24] px-3 sm:px-6 overflow-x-auto scrollbar-none">
+      {/* Navigation Tabs Bar */}
+      <div className="bg-[#141418] border-t border-[#27272A] px-3 sm:px-6 overflow-x-auto scrollbar-none">
         <div className="max-w-7xl mx-auto flex items-center gap-1 sm:gap-2 py-1.5">
           {navItems.map((item) => {
             const Icon = item.icon;
@@ -200,7 +200,7 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
                 className={`flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold whitespace-nowrap transition-all ${
                   isActive
                     ? 'bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 shadow-sm'
-                    : 'text-gray-400 hover:text-gray-200 hover:bg-[#181822] border border-transparent'
+                    : 'text-gray-400 hover:text-gray-200 hover:bg-[#20202A] border border-transparent'
                 }`}
               >
                 <Icon className={`w-3.5 h-3.5 ${isActive ? 'text-emerald-400' : 'text-gray-400'}`} />
@@ -210,7 +210,7 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
                     className={`text-[9px] px-1.5 py-0.2 rounded font-semibold ${
                       isActive
                         ? 'bg-emerald-500/30 text-emerald-300'
-                        : 'bg-[#22222E] text-gray-400'
+                        : 'bg-[#20202A] text-gray-400'
                     }`}
                   >
                     {item.badge}
@@ -224,7 +224,7 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
 
       {/* Mobile Drawer Menu */}
       {mobileMenuOpen && (
-        <div className="sm:hidden bg-[#111116] border-b border-[#22222E] p-3 space-y-1">
+        <div className="sm:hidden bg-[#141418] border-b border-[#27272A] p-3 space-y-1">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = activeTab === item.id;
@@ -238,7 +238,7 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
                 className={`w-full flex items-center justify-between p-2.5 rounded-xl text-xs font-semibold ${
                   isActive
                     ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                    : 'text-gray-300 hover:bg-[#181822]'
+                    : 'text-gray-300 hover:bg-[#20202A]'
                 }`}
               >
                 <div className="flex items-center gap-2">
@@ -246,7 +246,7 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
                   <span>{item.label}</span>
                 </div>
                 {item.badge && (
-                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#20202E] text-gray-400">
+                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-[#20202A] text-gray-400">
                     {item.badge}
                   </span>
                 )}
