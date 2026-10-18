@@ -25,6 +25,7 @@ import {
 } from 'lucide-react';
 import { LearningHubTab } from '../../types/learningHub';
 import { learningHubService } from '../../services/learningHubService';
+import { AbhyvexaLogo } from '../AbhyvexaLogo';
 
 interface LearningHubHeaderProps {
   activeTab: LearningHubTab;
@@ -99,20 +100,18 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
             )}
 
             <div className="flex items-center gap-2.5">
-              <div className="w-8 sm:w-9 h-8 sm:h-9 rounded-xl bg-gradient-to-tr from-emerald-500 via-teal-500 to-indigo-500 flex items-center justify-center shadow-lg shadow-emerald-500/20 text-white font-bold flex-shrink-0">
-                <Sparkles className="w-4 sm:w-5 h-4 sm:h-5 text-white" />
-              </div>
+              <AbhyvexaLogo className="w-8 sm:w-9 h-8 sm:h-9 flex-shrink-0" />
               <div>
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <span className="font-bold text-sm sm:text-base tracking-tight text-white">
-                    Study With Abhi
+                  <span className="font-extrabold text-sm sm:text-base tracking-wider text-white">
+                    ABHY<span className="text-[#00F5C4]">VEXA</span>
                   </span>
-                  <span className="px-1.5 sm:px-2 py-0.5 rounded text-[9px] sm:text-[10px] font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
-                    HUB
+                  <span className="px-1.5 py-0.2 rounded text-[8px] sm:text-[9px] font-bold bg-[#10B981]/15 text-[#10B981] border border-[#10B981]/30 tracking-widest uppercase">
+                    PRO
                   </span>
                 </div>
-                <p className="text-[10px] sm:text-[11px] text-gray-400 hidden md:block">
-                  Distraction-free YouTube course converter & academic workspace
+                <p className="text-[10px] text-[#A1A1AA] hidden md:block tracking-wide font-medium">
+                  LEARN BEYOND LIMITS
                 </p>
               </div>
             </div>
@@ -169,7 +168,7 @@ export const LearningHubHeader: React.FC<LearningHubHeaderProps> = ({
             <button
               onClick={onOpenSettings}
               className="p-2 rounded-xl text-gray-400 hover:text-white bg-[#141418] hover:bg-[#1E1E26] border border-[#242432] transition-colors"
-              title="Learning Hub Settings"
+              title="ABHYVEXA Settings"
             >
               <Settings className="w-4 h-4" />
             </button>

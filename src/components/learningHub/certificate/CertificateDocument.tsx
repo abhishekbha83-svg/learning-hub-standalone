@@ -1,6 +1,6 @@
 import React from 'react';
 import { CourseCertificate } from '../../../types/certificate';
-import { StudyWithAbhiLogo } from '../../StudyWithAbhiLogo';
+import { AbhyvexaLogo } from '../../AbhyvexaLogo';
 import { ShieldCheck, Award, CheckCircle2, Sparkles } from 'lucide-react';
 
 interface CertificateDocumentProps {
@@ -19,7 +19,7 @@ export const CertificateDocument: React.FC<CertificateDocumentProps> = ({
   return (
     <div
       id={id}
-      className={`relative w-full aspect-[1.414/1] bg-[#0A0A0E] text-slate-100 rounded-3xl p-6 sm:p-10 md:p-12 overflow-hidden shadow-2xl border-4 border-[#D97706]/40 select-none print:m-0 print:border-none print:rounded-none print:shadow-none print:w-full print:h-full ${className}`}
+      className={`relative w-full aspect-[1.414/1] bg-[#0A0A0E] text-slate-100 rounded-3xl p-6 sm:p-10 md:p-12 overflow-hidden shadow-2xl border-4 border-[#10B981]/40 select-none print:m-0 print:border-none print:rounded-none print:shadow-none print:w-full print:h-full ${className}`}
       style={{
         boxShadow: '0 25px 70px -15px rgba(0, 0, 0, 0.8), 0 0 40px -10px rgba(16, 185, 129, 0.15)'
       }}
@@ -31,22 +31,22 @@ export const CertificateDocument: React.FC<CertificateDocumentProps> = ({
 
       {/* Outer Inner Double Border */}
       <div className="absolute inset-3 sm:inset-4 md:inset-5 rounded-2xl border-2 border-[#10B981]/40 pointer-events-none" />
-      <div className="absolute inset-5 sm:inset-6 md:inset-7 rounded-xl border border-[#F59E0B]/20 pointer-events-none" />
+      <div className="absolute inset-5 sm:inset-6 md:inset-7 rounded-xl border border-[#14B8A6]/20 pointer-events-none" />
 
       {/* Decorative Ornate Corners */}
-      <div className="absolute top-6 left-6 sm:top-8 sm:left-8 w-6 h-6 border-t-2 border-l-2 border-[#F59E0B] pointer-events-none" />
-      <div className="absolute top-6 right-6 sm:top-8 sm:right-8 w-6 h-6 border-t-2 border-r-2 border-[#F59E0B] pointer-events-none" />
-      <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 w-6 h-6 border-b-2 border-l-2 border-[#F59E0B] pointer-events-none" />
-      <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 w-6 h-6 border-b-2 border-r-2 border-[#F59E0B] pointer-events-none" />
+      <div className="absolute top-6 left-6 sm:top-8 sm:left-8 w-6 h-6 border-t-2 border-l-2 border-[#10B981] pointer-events-none" />
+      <div className="absolute top-6 right-6 sm:top-8 sm:right-8 w-6 h-6 border-t-2 border-r-2 border-[#10B981] pointer-events-none" />
+      <div className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 w-6 h-6 border-b-2 border-l-2 border-[#10B981] pointer-events-none" />
+      <div className="absolute bottom-6 right-6 sm:bottom-8 sm:right-8 w-6 h-6 border-b-2 border-r-2 border-[#10B981] pointer-events-none" />
 
       {/* Certificate Content Flex Flow */}
       <div className="relative z-10 h-full flex flex-col justify-between items-center text-center">
         {/* Top Header: Brand & Milestone Type */}
         <div className="space-y-1.5 sm:space-y-2 w-full">
           <div className="flex items-center justify-center gap-2 sm:gap-3">
-            <StudyWithAbhiLogo className="w-6 h-6 sm:w-8 sm:h-8" />
+            <AbhyvexaLogo className="w-7 h-7 sm:w-9 sm:h-9" />
             <span className="font-extrabold text-xs sm:text-sm md:text-base tracking-[0.25em] uppercase text-emerald-400">
-              Study With Abhi Learning Hub
+              ABHYVEXA — LEARN BEYOND LIMITS
             </span>
           </div>
 
@@ -111,20 +111,20 @@ export const CertificateDocument: React.FC<CertificateDocumentProps> = ({
             </div>
             <div className="text-emerald-400 text-[10px] sm:text-[11px] font-medium flex items-center gap-1 pt-0.5">
               <CheckCircle2 className="w-3 h-3 shrink-0" />
-              <span>Study With Abhi Verified Engine</span>
+              <span>ABHYVEXA Verified Academic Engine</span>
             </div>
           </div>
 
           {/* Center Column: Digital Embossed Seal */}
           <div className="flex flex-col items-center justify-center shrink-0 mx-2">
-            <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-tr from-[#141418] to-[#1C1C24] border-2 border-[#D97706] p-1 shadow-lg shadow-amber-500/10 flex items-center justify-center relative">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-full bg-gradient-to-tr from-[#141418] to-[#1C1C24] border-2 border-[#10B981] p-1 shadow-lg shadow-emerald-500/10 flex items-center justify-center relative">
               <div className="w-full h-full rounded-full border border-emerald-500/50 flex flex-col items-center justify-center text-center p-1">
                 <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-emerald-400" />
-                <span className="text-[7px] sm:text-[8px] font-black tracking-wider text-amber-300 uppercase mt-0.5">
+                <span className="text-[7px] sm:text-[8px] font-black tracking-wider text-emerald-300 uppercase mt-0.5">
                   VERIFIED
                 </span>
-                <span className="text-[6px] sm:text-[7px] text-slate-400 font-mono">
-                  SWA 2026
+                <span className="text-[6px] sm:text-[7px] text-slate-300 font-mono font-bold">
+                  ABHYVEXA
                 </span>
               </div>
             </div>

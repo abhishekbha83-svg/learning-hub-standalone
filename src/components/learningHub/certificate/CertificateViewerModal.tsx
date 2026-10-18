@@ -131,7 +131,7 @@ export const CertificateViewerModal: React.FC<CertificateViewerModalProps> = ({
 
         <div className="flex items-center gap-4 text-[11px]">
           <span>Format: Standard A4 Landscape</span>
-          <span>Verified by Study With Abhi Hub</span>
+          <span>Verified by ABHYVEXA</span>
           <button
             onClick={() => onOpenVerify(certificate.id)}
             className="text-emerald-400 hover:underline flex items-center gap-1 font-bold cursor-pointer"

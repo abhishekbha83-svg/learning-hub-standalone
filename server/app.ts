@@ -1,5 +1,5 @@
 import express from 'express';
-import { learningHubRouter } from './learningHub/learningHubServer.js';
+import { learningHubRouter } from './learningHub/learningHubServer.ts';
 
 const app = express();
 

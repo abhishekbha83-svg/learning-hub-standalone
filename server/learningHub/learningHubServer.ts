@@ -7,7 +7,7 @@ import {
   sendOpenRouterChat,
   OPENROUTER_DEFAULT_MODEL,
   extractJsonFromText
-} from './openRouterService.js';
+} from './openRouterService.ts';
 
 export const learningHubRouter = express.Router();
 
@@ -928,7 +928,7 @@ learningHubRouter.post('/ai/tutor', async (req, res) => {
       });
     }
 
-    const systemPrompt = `You are the Study With Abhi AI Academic Tutor — a world-class, empathetic, highly rigorous academic mentor for Indian and global competitive exam aspirants (JEE Main & Advanced, NEET UG, UPSC CSE, GATE, SSC CGL, Coding, and College STEM courses).
+    const systemPrompt = `You are the ABHYVEXA AI Academic Tutor — a world-class, empathetic, highly rigorous academic mentor for Indian and global competitive exam aspirants (JEE Main & Advanced, NEET UG, UPSC CSE, GATE, SSC CGL, Coding, and College STEM courses).
 - Provide crystal-clear explanations with step-by-step mathematical derivations, intuitive physical/conceptual analogies, code snippets, or mnemonics where appropriate.
 - Always highlight common exam mistakes, standard textbook references (like NCERT or standard references), and high-yield problem-solving tips.
 - Maintain an encouraging, distraction-free, focused academic tone.
@@ -980,7 +980,7 @@ learningHubRouter.post('/ai/tutor', async (req, res) => {
       success: true,
       answer: aiRes.text,
       model: aiRes.model,
-      groundingDisclaimer: `Answered by Study With Abhi AI Tutor using ${aiRes.model || OPENROUTER_DEFAULT_MODEL} grounded in lecture curriculum context.`
+      groundingDisclaimer: `Answered by ABHYVEXA AI Tutor using ${aiRes.model || OPENROUTER_DEFAULT_MODEL} grounded in lecture curriculum context.`
     });
   } catch (err: any) {
     console.error('[AI Tutor Error]:', err);
@@ -1003,7 +1003,7 @@ learningHubRouter.post('/ai/summary', async (req, res) => {
 
     const hasTranscript = Boolean(transcriptContent && typeof transcriptContent === 'string' && transcriptContent.trim().length > 50);
 
-    const systemPrompt = `You are the Study With Abhi Academic Synthesis Specialist.
+    const systemPrompt = `You are the ABHYVEXA Academic Synthesis Specialist.
 Your task is to generate an exhaustive, structured, academic revision summary for students preparing for competitive exams.
 Requirements:
 1. If transcript content is provided, analyze the actual lecture text thoroughly.
@@ -1435,7 +1435,7 @@ learningHubRouter.post('/ai/recommendations', async (req, res) => {
       ? weakTopics.join(', ')
       : 'None recorded yet (take practice quizzes to diagnose weak topics).';
 
-    const systemPrompt = `You are the Study With Abhi Academic Progress Coach.
+    const systemPrompt = `You are the ABHYVEXA Academic Progress Coach.
 Analyze the student's REAL study metrics without hallucinating or fabricating facts:
 - Target Exam: ${targetExam}
 - Current Habit Streak: ${streakDays} days
@@ -1555,7 +1555,7 @@ learningHubRouter.get('/certificates/verify/:certId', (req, res) => {
     return res.status(404).json({
       success: false,
       verified: false,
-      error: 'Certificate not found in Study With Abhi Registry'
+      error: 'Certificate not found in ABHYVEXA Registry'
     });
   }
 

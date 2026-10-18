@@ -1,4 +1,4 @@
-// Study With Abhi Learning Hub - Client Core State & Storage Service
+// ABHYVEXA — Client Core State & Storage Service
 import {
   LearningCourse,
   LectureItem,
@@ -629,7 +629,7 @@ export class LearningHubService {
       title,
       description:
         description ||
-        `Custom Study With Abhi course featuring ${formattedLectures.length} video lectures.`,
+        `Custom ABHYVEXA course featuring ${formattedLectures.length} video lectures.`,
       sourceUrl,
       channelName,
       thumbnailUrl:

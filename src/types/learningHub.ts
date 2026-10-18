@@ -1,4 +1,4 @@
-// Study With Abhi Learning Hub - Unified Type Definitions
+// ABHYVEXA — Unified Type Definitions
 
 export type LearningHubTab =
   | 'overview'

@@ -28,7 +28,7 @@ export const AICenter: React.FC = () => {
   const [tutorChat, setTutorChat] = useState<Array<{ role: 'user' | 'assistant'; text: string }>>([
     {
       role: 'assistant',
-      text: 'Hello! I am your Study With Abhi AI Academic Tutor. Ask me any conceptual doubt, request a step-by-step mathematical derivation, or ask for high-yield exam tips for JEE, NEET, UPSC, GATE, or Coding.'
+      text: 'Hello! I am your ABHYVEXA AI Academic Tutor. Ask me any conceptual doubt, request a step-by-step mathematical derivation, or ask for high-yield exam tips for JEE, NEET, UPSC, GATE, or Coding.'
     }
   ]);
   const [isTutorLoading, setIsTutorLoading] = useState<boolean>(false);

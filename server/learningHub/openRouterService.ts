@@ -77,7 +77,7 @@ export async function sendOpenRouterChat(options: OpenRouterChatOptions): Promis
             'Authorization': `Bearer ${apiKey}`,
             'Content-Type': 'application/json',
             'HTTP-Referer': 'https://studywithabhi.com',
-            'X-Title': 'Study With Abhi Learning Hub'
+            'X-Title': 'ABHYVEXA — LEARN BEYOND LIMITS'
           },
           body: JSON.stringify(bodyPayload),
           signal: AbortSignal.timeout(timeoutMs)

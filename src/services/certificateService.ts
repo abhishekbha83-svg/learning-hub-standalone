@@ -1,4 +1,4 @@
-// Study With Abhi - Premium Certificate Service
+// ABHYVEXA — Premium Certificate Service
 // Handles milestone eligibility, certificate generation, tamper-proof verification, and high-res export.
 
 import { LearningCourse } from '../types/learningHub';
@@ -65,7 +65,7 @@ export const MILESTONE_CONFIGS: Record<
 };
 
 class CertificateService {
-  // Generate a cryptographically structured unique Certificate ID: SWA-CERT-YYYY-XXXX-XXXX
+  // Generate a cryptographically structured unique Certificate ID: ABHY-CERT-YYYY-XXXX-XXXX
   private generateCertificateId(): string {
     const year = new Date().getFullYear();
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -75,7 +75,7 @@ class CertificateService {
       part1 += chars.charAt(Math.floor(Math.random() * chars.length));
       part2 += chars.charAt(Math.floor(Math.random() * chars.length));
     }
-    return `SWA-CERT-${year}-${part1}-${part2}`;
+    return `ABHY-CERT-${year}-${part1}-${part2}`;
   }
 
   // Generate an anti-tamper verification hash based on issuance payload
@@ -287,9 +287,9 @@ class CertificateService {
       verificationUrl,
       verificationCode,
       issuer: {
-        platform: 'Study With Abhi Learning Hub',
+        platform: 'ABHYVEXA — LEARN BEYOND LIMITS',
         engine: 'Automated Academic Lecture Verification Engine',
-        authority: 'Study With Abhi Digital Credential Registry',
+        authority: 'ABHYVEXA Digital Credential Registry',
         websiteUrl: baseUrl
       },
       metadata: {
@@ -355,7 +355,7 @@ class CertificateService {
 
     return {
       verified: false,
-      error: 'Certificate not found. The provided credential ID could not be verified in the Study With Abhi registry.',
+      error: 'Certificate not found. The provided credential ID could not be verified in the ABHYVEXA registry.',
       verifiedAt: Date.now()
     };
   }
@@ -515,7 +515,7 @@ class CertificateService {
     ctx.fillText('ISSUING PLATFORM', 220, bottomY + 120);
     ctx.fillStyle = '#10B981';
     ctx.font = 'bold 32px sans-serif';
-    ctx.fillText('Study With Abhi Learning Hub', 220, bottomY + 160);
+    ctx.fillText('ABHYVEXA — LEARN BEYOND LIMITS', 220, bottomY + 160);
     ctx.fillStyle = '#475569';
     ctx.font = '24px sans-serif';
     ctx.fillText('Verified Digital Educational Credential', 220, bottomY + 195);

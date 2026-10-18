@@ -1,0 +1,7 @@
+{
+  "name": "Learning Hub",
+  "description": "ABHYVEXA is a modern learning workspace for courses, study planning, syllabus tracking, practice, and academic productivity.",
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

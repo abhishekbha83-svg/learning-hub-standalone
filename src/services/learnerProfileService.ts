@@ -1,8 +1,5 @@
 /**
- * Standalone browser storage for the Learning Hub.
- *
- * These keys deliberately do not reuse Study With Abhi's keys, so running the
- * standalone project on the same browser cannot overwrite the main site's data.
+ * Standalone browser storage for ABHYVEXA.
  */
 const USER_ID_KEY = 'learning_hub_user_id';
 const STUDENT_NAME_KEY = 'learning_hub_student_name';

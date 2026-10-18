@@ -41,7 +41,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `StudyWithAbhi_Backup_${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `ABHYVEXA_Backup_${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
   };
@@ -70,7 +70,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
         <div className="flex items-center justify-between pb-3 border-b border-white/10">
           <div className="flex items-center gap-2.5">
             <Settings className="w-5 h-5 text-emerald-400" />
-            <h2 className="text-lg font-black text-white tracking-tight">Learning Hub Preferences</h2>
+            <h2 className="text-lg font-black text-white tracking-tight">ABHYVEXA Preferences</h2>
           </div>
           <button
             onClick={onClose}

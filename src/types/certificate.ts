@@ -1,4 +1,4 @@
-// Study With Abhi - Premium Certificate System Type Definitions
+// ABHYVEXA — Premium Certificate System Type Definitions
 
 export type CertificateMilestone = 25 | 50 | 75 | 100;
 

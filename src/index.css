@@ -52,25 +52,28 @@
 
   [data-theme='dark'] {
     color-scheme: dark !important;
-    --background: #090a0f;
-    --surface: #12141d;
-    --surface-secondary: #181a26;
-    --surface-tertiary: #1c1f2d;
-    --text-primary: #F8FAFC;
-    --text-secondary: #94A3B8;
-    --border: rgba(255, 255, 255, 0.1);
-    --brand: #f97316;
-    --success: #10b981;
+    --background: #0D0D0F;
+    --surface: #141418;
+    --surface-secondary: #181920;
+    --surface-tertiary: #1E1F28;
+    --text-primary: #F5F5F5;
+    --text-secondary: #A1A1AA;
+    --border: #27272A;
+    --brand: #10B981;
+    --brand-teal: #14B8A6;
+    --success: #10B981;
     --danger: #ef4444;
 
-    --bg-base: #090a0f;
-    --bg-surface: #12141d;
-    --bg-surface-elevated: #181a26;
-    --border-subtle: rgba(255, 255, 255, 0.08);
-    --border-orange: rgba(249, 115, 22, 0.35);
-    --accent-orange: #f97316;
-    --accent-amber: #fb923c;
-    --text-muted: #94A3B8;
+    --bg-base: #0D0D0F;
+    --bg-surface: #141418;
+    --bg-surface-elevated: #181920;
+    --border-subtle: #27272A;
+    --border-orange: rgba(16, 185, 129, 0.35);
+    --accent-orange: #10b981;
+    --accent-amber: #14b8a6;
+    --accent-emerald: #10b981;
+    --accent-teal: #14b8a6;
+    --text-muted: #A1A1AA;
   }
 
   body {
@@ -93,21 +96,21 @@
     background: var(--background);
   }
   ::-webkit-scrollbar-thumb {
-    background: rgba(100, 116, 139, 0.25);
+    background: rgba(161, 161, 170, 0.25);
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(249, 115, 22, 0.5);
+    background: rgba(16, 185, 129, 0.5);
   }
 
   [data-theme='dark'] ::-webkit-scrollbar-track {
-    background: #090a0f;
+    background: #0D0D0F;
   }
   [data-theme='dark'] ::-webkit-scrollbar-thumb {
     background: rgba(255, 255, 255, 0.15);
   }
   [data-theme='dark'] ::-webkit-scrollbar-thumb:hover {
-    background: rgba(249, 115, 22, 0.5);
+    background: rgba(16, 185, 129, 0.5);
   }
 }
 
@@ -116,9 +119,9 @@
   position: fixed;
   inset: 0;
   background: 
-    radial-gradient(circle at 15% 10%, rgba(249, 115, 22, 0.05), transparent 50%),
-    radial-gradient(circle at 85% 80%, rgba(245, 158, 11, 0.04), transparent 50%),
-    radial-gradient(circle at 50% 40%, rgba(251, 146, 60, 0.02), transparent 60%);
+    radial-gradient(circle at 15% 10%, rgba(16, 185, 129, 0.04), transparent 50%),
+    radial-gradient(circle at 85% 80%, rgba(20, 184, 166, 0.03), transparent 50%),
+    radial-gradient(circle at 50% 40%, rgba(56, 189, 248, 0.02), transparent 60%);
   pointer-events: none;
   z-index: 0;
   transition: background 0.3s ease;
@@ -126,9 +129,9 @@
 
 [data-theme='dark'] .ambient-glow-mesh {
   background: 
-    radial-gradient(circle at 15% 15%, rgba(249, 115, 22, 0.12), transparent 45%),
-    radial-gradient(circle at 85% 75%, rgba(234, 88, 12, 0.09), transparent 50%),
-    radial-gradient(circle at 50% 50%, rgba(251, 146, 60, 0.04), transparent 60%);
+    radial-gradient(circle at 15% 15%, rgba(16, 185, 129, 0.09), transparent 45%),
+    radial-gradient(circle at 85% 75%, rgba(20, 184, 166, 0.07), transparent 50%),
+    radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.03), transparent 60%);
 }
 
 /* Glassmorphic Panel */
@@ -142,17 +145,23 @@
 }
 .glass-panel-hover:hover {
   transform: translateY(-2px);
-  border-color: rgba(249, 115, 22, 0.45);
-  box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  border-color: rgba(16, 185, 129, 0.45);
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
 }
 
-/* Orange Glow utilities */
-.glow-orange {
-  box-shadow: 0 0 25px -5px rgba(249, 115, 22, 0.35);
+/* Emerald & Teal Glow utilities */
+.glow-orange,
+.glow-emerald {
+  box-shadow: 0 0 25px -5px rgba(16, 185, 129, 0.35);
 }
 
-.glow-orange-sm {
-  box-shadow: 0 0 15px -3px rgba(249, 115, 22, 0.25);
+.glow-orange-sm,
+.glow-emerald-sm {
+  box-shadow: 0 0 15px -3px rgba(16, 185, 129, 0.25);
+}
+
+.glow-teal {
+  box-shadow: 0 0 25px -5px rgba(20, 184, 166, 0.35);
 }
 
 /* Top Progress loader animation */

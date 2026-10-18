@@ -84,7 +84,7 @@ export const CertificateCard: React.FC<CertificateCardProps> = ({
           
           <div className="w-full flex items-center justify-between z-10">
             <span className="text-[9px] font-mono text-emerald-400 uppercase tracking-widest">
-              Study With Abhi Hub
+              ABHYVEXA
             </span>
             <ShieldCheck className="w-3.5 h-3.5 text-amber-400" />
           </div>

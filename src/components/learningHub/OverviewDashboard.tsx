@@ -28,6 +28,7 @@ import {
 import { LearningCourse, LearningHubTab, PlannerTask, SyllabusTopic } from '../../types/learningHub';
 import { learningHubService } from '../../services/learningHubService';
 import { getStoredTotalSeconds } from '../../services/learnerProfileService';
+import { AbhyvexaLogo } from '../AbhyvexaLogo';
 
 interface OverviewDashboardProps {
   onSelectTab: (tab: LearningHubTab) => void;
@@ -183,9 +184,11 @@ export const OverviewDashboard: React.FC<OverviewDashboardProps> = ({
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-96 h-48 bg-emerald-500/10 blur-[90px] pointer-events-none rounded-full" />
 
         <div className="relative z-10 max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-bold tracking-wide">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Structured YouTube Learning Engine</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/25 text-emerald-400 text-xs font-bold tracking-wide">
+            <AbhyvexaLogo className="w-4 h-4" />
+            <span className="font-extrabold tracking-wider">ABHYVEXA</span>
+            <span className="text-slate-500">•</span>
+            <span className="text-slate-300 font-medium tracking-wide">LEARN BEYOND LIMITS</span>
           </div>
 
           <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-[1.1]">
